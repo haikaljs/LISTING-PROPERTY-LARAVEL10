@@ -50,35 +50,35 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Name <span class="text-danger">*</span></label>
-                                            <input type="text" name="name" class="form-control" required>
+                                            <input type="text" name="name" class="form-control">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Email <span class="text-danger">*</span></label>
-                                            <input type="text" name="email" class="form-control" required>
+                                            <input type="text" name="email" class="form-control">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Phone <span class="text-danger">*</span></label>
-                                            <input type="text" name="phone" class="form-control" required>
+                                            <input type="text" name="phone" class="form-control">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Address <span class="text-danger">*</span></label>
-                                            <input type="text" name="address" class="form-control" required>
+                                            <input type="text" name="address" class="form-control">
 
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="avatar">About <span class="text-danger">*</span></label>
-                                            <textarea name="about" id="" cols="30" rows="10" class="form-control" required></textarea>
+                                            <textarea name="about" cols="30" rows="10" class="form-control"></textarea>
 
                                         </div>
                                     </div>

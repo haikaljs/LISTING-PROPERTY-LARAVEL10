@@ -16,7 +16,7 @@ class ProfileController extends Controller
     }
     function update(ProfileUpdateRequest $request) : RedirectResponse{
        // update data
-        $request->all();
+        dd($request->all());
        return redirect()->back();
 
     }
