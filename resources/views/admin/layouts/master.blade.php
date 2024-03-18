@@ -31,7 +31,7 @@
 
             <!-- Main Content -->
             <div class="main-content">
-               @yield('contents')
+                @yield('contents')
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
@@ -56,9 +56,13 @@
 
     <!-- JS Libraies -->
     <script src="{{ asset('admin/assets/modules/summernote/summernote-bs4.js') }}"></script>
+    {{-- uploadpreview --}}
+    <script src="{{ asset('admin/assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }}"></script>
 
     <!-- Template JS File -->
     <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
+  
+    @stack('scripts')
 
 </body>
 
