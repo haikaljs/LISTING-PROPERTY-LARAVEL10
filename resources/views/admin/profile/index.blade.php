@@ -28,10 +28,10 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="avatar">Avatar</label>
+                                            <label for="avatar">Avatar </label>
                                             <div id="image-preview" class="image-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
-                                                <input type="file" name="image" id="image-upload" />
+                                                <input type="file" name="avatar" id="image-upload" />
                                             </div>
 
                                         </div>
@@ -41,8 +41,98 @@
                                             <label for="avatar">Banner</label>
                                             <div id="image-preview-2" class="image-preview">
                                                 <label for="image-upload-2" id="image-label-2">Choose File</label>
-                                                <input type="file" name="image" id="image-upload-2" />
+                                                <input type="file" name="banner" id="image-upload-2" />
                                             </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Name <span class="text-danger">*</span></label>
+                                            <input type="text" name="name" class="form-control" required>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Email <span class="text-danger">*</span></label>
+                                            <input type="text" name="email" class="form-control" required>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Phone <span class="text-danger">*</span></label>
+                                            <input type="text" name="phone" class="form-control" required>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Address <span class="text-danger">*</span></label>
+                                            <input type="text" name="address" class="form-control" required>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="avatar">About <span class="text-danger">*</span></label>
+                                            <textarea name="about" id="" cols="30" rows="10" class="form-control" required></textarea>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Website</label>
+                                            <input type="text" name="website" class="form-control">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Facebook</label>
+                                            <input type="text" name="fb_link" class="form-control">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">X</label>
+                                            <input type="text" name="x_link" class="form-control">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Linkedin</label>
+                                            <input type="text" name="in_link" class="form-control">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Whatssapp</label>
+                                            <input type="text" name="ws_link" class="form-control">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Whatssapp</label>
+                                            <input type="text" name="wa_link" class="form-control">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Instragram</label>
+                                            <input type="text" name="instra_link" class="form-control">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Update</button>
 
                                         </div>
                                     </div>
