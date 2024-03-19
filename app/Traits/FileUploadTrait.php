@@ -17,7 +17,7 @@ trait FileUploadTrait {
 
             // Delete previous image from storage
             $excludedFolder = '/default';
-            
+
             if($oldPath && File::exists(public_path($oldPath)) && strpos($oldPath, $excludedFolder) !== 0){
                 File::delete(public_path($oldPath));
             }
