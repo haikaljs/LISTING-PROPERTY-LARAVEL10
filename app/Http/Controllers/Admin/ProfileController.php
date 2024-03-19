@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\ProfileUpdateRequest;
-use App\Models\User;
-use App\Traits\FileUploadTrait;
 use Auth;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Traits\FileUploadTrait;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\Admin\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -21,8 +21,8 @@ class ProfileController extends Controller
 
     }
     function update(ProfileUpdateRequest $request) : RedirectResponse{
-       $avatarPath = $this->uploadImage($request, 'avatar');
-       $bannerPath = $this->uploadImage($request, 'banner');
+       $avatarPath = $this->uploadImage($request, 'avatar', $request->old_avatar);
+       $bannerPath = $this->uploadImage($request, 'banner', $request->old_banner);
 
        $user = Auth::user();
 
@@ -42,7 +42,7 @@ class ProfileController extends Controller
        $user->instra_link = $request->instra_link;
        $user->save();
 
-    //    toastr()->success('Updated successfully!');
+       toastr()->success('Updated successfully!');
        return redirect()->back();
 
     }
