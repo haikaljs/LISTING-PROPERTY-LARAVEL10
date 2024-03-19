@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 trait FileUploadTrait {
-    function uploadImage(Request $request, $inputName, $oldPath = null, $path = '/uploads'){
+    function uploadImage(Request $request, string $inputName, string $oldPath = null, $path = '/uploads') : ?string{
+
         if($request->hasFile($inputName)){
             $image = $request->{$inputName};
             $ext = $image->getClientOriginalExtension();
@@ -14,13 +15,17 @@ trait FileUploadTrait {
 
             $image->move(public_path($path), $imageName);
 
-            // Delete previous image
-            if($oldPath && File::exists(public_path($oldPath))){
+            // Delete previous image from storage
+            $excludedFolder = '/default';
+
+            if($oldPath && File::exists(public_path($oldPath) && strpos($oldPath, $excludedFolder !== 0))){
                 File::delete(public_path($oldPath));
             }
 
             return $path . '/' . $imageName;
         }
+
+        return null;
     }
 }
 

@@ -30,9 +30,10 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Avatar </label>
-                                            <div id="image-preview" class="image-preview">
+                                            <div id="image-preview" class="image-preview avatar-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
                                                 <input type="file" name="avatar" id="image-upload" />
+                                                <input type="hidden" name="old_avatar" value="{{ $user->avatar }}">
                                             </div>
 
                                         </div>
@@ -40,9 +41,10 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Banner</label>
-                                            <div id="image-preview-2" class="image-preview">
+                                            <div id="image-preview-2" class="image-preview banner-preview">
                                                 <label for="image-upload-2" id="image-label-2">Choose File</label>
                                                 <input type="file" name="banner" id="image-upload-2" />
+                                                <input type="hidden" name="old_banner" value="{{ $user->banner }}">
                                             </div>
 
                                         </div>
@@ -50,77 +52,80 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Name <span class="text-danger">*</span></label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="name" value="{{ $user->name }}"
+                                                class="form-control">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Email <span class="text-danger">*</span></label>
-                                            <input type="text" name="email" class="form-control">
+                                            <input type="text" name="email" value="{{ $user->email }}"
+                                                class="form-control">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Phone <span class="text-danger">*</span></label>
-                                            <input type="text" name="phone" class="form-control">
+                                            <input type="text" name="phone" value="{{ $user->phone }}"
+                                                class="form-control">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Address <span class="text-danger">*</span></label>
-                                            <input type="text" name="address" class="form-control">
+                                            <input type="text" name="address"
+                                                value="{{ $user->address }}"class="form-control">
 
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="avatar">About <span class="text-danger">*</span></label>
-                                            <textarea name="about" cols="30" rows="10" class="form-control"></textarea>
+                                            <textarea name="about" cols="30" rows="10" class="form-control">{{ $user->about }}</textarea>
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Website</label>
-                                            <input type="text" name="website" class="form-control">
+                                            <input type="text" name="website"
+                                                value="{{ $user->website }}"class="form-control">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Facebook</label>
-                                            <input type="text" name="fb_link" class="form-control">
+                                            <input type="text" name="fb_link" value="{{ $user->fb_link }}"
+                                                class="form-control">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">X</label>
-                                            <input type="text" name="x_link" class="form-control">
+                                            <input type="text" name="x_link"
+                                                value="{{ $user->x_link }}"class="form-control">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Linkedin</label>
-                                            <input type="text" name="in_link" class="form-control">
+                                            <input type="text" name="in_link" value="{{ $user->in_link }}"
+                                                class="form-control">
 
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="avatar">Whatssapp</label>
-                                            <input type="text" name="ws_link" class="form-control">
 
-                                        </div>
-                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="avatar">Whatssapp</label>
-                                            <input type="text" name="wa_link" class="form-control">
+                                            <input type="text" name="wa_link"
+                                                value="{{ $user->wa_link }}"class="form-control">
 
                                         </div>
                                     </div>
@@ -148,6 +153,22 @@
 @endsection
 @push('scripts')
     <script>
+        $(document).ready(function() {
+            $('.avatar-preview').css({
+                'background-image': 'url({{ asset($user->avatar) }})',
+                'background-size': 'cover',
+                'background-positon': 'center center'
+            })
+        })
+
+        $(document).ready(function() {
+            $('.banner-preview').css({
+                'background-image': 'url({{ asset($user->banner) }})',
+                'background-size': 'cover',
+                'background-positon': 'center center'
+            })
+        })
+
         $.uploadPreview({
             input_field: "#image-upload", // Default: .image-upload
             preview_box: "#image-preview", // Default: .image-preview
