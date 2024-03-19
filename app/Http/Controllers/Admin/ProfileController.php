@@ -20,6 +20,7 @@ class ProfileController extends Controller
         return view('admin.profile.index', compact('user'));
 
     }
+
     function update(ProfileUpdateRequest $request) : RedirectResponse{
        $avatarPath = $this->uploadImage($request, 'avatar', $request->old_avatar);
        $bannerPath = $this->uploadImage($request, 'banner', $request->old_banner);
@@ -45,5 +46,19 @@ class ProfileController extends Controller
        toastr()->success('Updated successfully!');
        return redirect()->back();
 
+    }
+
+    function passwordUpdate(Request $request) : RedirectResponse{
+
+       $request->validate([
+        'password' => ['required', 'min:5', 'confirmed']
+       ]);
+
+       $user = Auth::user();
+       $user->password = bcrypt($request->password);
+       $user->save();
+
+       toastr()->success('Updated successfully!');
+       return redirect()->back();
     }
 }

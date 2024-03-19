@@ -14,8 +14,6 @@
         </div>
 
         <div class="section-body">
-
-
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -136,6 +134,46 @@
 
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Update</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Update password --}}
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Update Profile</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="{{ route('admin.profile-password.update') }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Password <span class="text-danger">*</span></label>
+                                            <input type="password" name="password" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="avatar">Confirm Password <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="password" name="password_confirmation" class="form-control">
+                                        </div>
+                                    </div>
+
+
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary">Update</button>
