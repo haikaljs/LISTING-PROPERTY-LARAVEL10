@@ -28,7 +28,8 @@ Route::middleware('auth')->group(function () {
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/profile', [FrontendProfileController::class, 'index'])->name('profile');
+    Route::get('/profile', [FrontendProfileController::class, 'index'])->name('profile.index');
+    Route::put('/profile', [FrontendProfileController::class, 'update'])->name('profile.update');
 
 });
 
