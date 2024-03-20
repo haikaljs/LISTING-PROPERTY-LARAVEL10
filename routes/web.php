@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], fu
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [FrontendProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile', [FrontendProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile-password', [FrontendProfileController::class, 'updatePassword'])->name('profile-password.update');
 
 });
 
