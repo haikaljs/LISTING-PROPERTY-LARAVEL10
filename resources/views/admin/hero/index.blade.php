@@ -5,7 +5,7 @@
             <div class="section-header-back">
                 <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
-            <h1>Profile</h1>
+            <h1>Hero</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Posts</a></div>
@@ -18,14 +18,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Update Profile</h4>
+                            <h4>Update Hero</h4>
                         </div>
                         <div class="card-body">
                             {{-- <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data"> --}}
                             @csrf
                             @method('PUT')
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="avatar">Avatar </label>
                                         <div id="image-preview" class="image-preview avatar-preview">
@@ -36,94 +36,19 @@
 
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="avatar">Banner</label>
-                                        <div id="image-preview-2" class="image-preview banner-preview">
-                                            <label for="image-upload-2" id="image-label-2">Choose File</label>
-                                            <input type="file" name="banner" id="image-upload-2" />
-                                            {{-- <input type="hidden" name="old_banner" value="{{ $user->banner }}"> --}}
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="avatar">Name <span class="text-danger">*</span></label>
-                                        {{-- <input type="text" name="name" value="{{ $user->name }}"
-                                            class="form-control"> --}}
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="avatar">Email <span class="text-danger">*</span></label>
-                                        {{-- <input type="text" name="email" value="{{ $user->email }}"
-                                            class="form-control"> --}}
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="avatar">Phone <span class="text-danger">*</span></label>
-                                        {{-- <input type="text" name="phone" value="{{ $user->phone }}"
-                                            class="form-control"> --}}
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="avatar">Address <span class="text-danger">*</span></label>
-                                        {{-- <input type="text" name="address"
-                                            value="{{ $user->address }}"class="form-control"> --}}
-
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="avatar">About <span class="text-danger">*</span></label>
-                                        {{-- <textarea name="about" cols="30" rows="10" class="form-control">{{ $user->about }}</textarea> --}}
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="avatar">Website</label>
-                                        {{-- <input type="text" name="website"
-                                            value="{{ $user->website }}"class="form-control"> --}}
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="avatar">Facebook</label>
-                                        {{-- <input type="text" name="fb_link" value="{{ $user->fb_link }}"
-                                            class="form-control"> --}}
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="avatar">X</label>
-                                        {{-- <input type="text" name="x_link"
-                                            value="{{ $user->x_link }}"class="form-control"> --}}
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="avatar">Linkedin</label>
-                                        {{-- <input type="text" name="in_link" value="{{ $user->in_link }}"
-                                            class="form-control"> --}}
+                                        <label for="avatar">Title <span class="text-danger">*</span></label>
+                                        <input type="text" name="title" value="" class="form-control">
 
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="avatar">Whatssapp</label>
-                                        {{-- <input type="text" name="wa_link"
-                                            value="{{ $user->wa_link }}"class="form-control"> --}}
+                                        <label for="avatar">Subtitle <span class="text-danger">*</span></label>
+                                        <input type="text" name="subtitle" value="" class="form-control">
 
                                     </div>
                                 </div>
@@ -141,45 +66,7 @@
                 </div>
             </div>
 
-            {{-- Update password --}}
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Update Profile</h4>
-                        </div>
-                        <div class="card-body">
-                            <form action="{{ route('admin.profile-password.update') }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="avatar">Password <span class="text-danger">*</span></label>
-                                            <input type="password" name="password" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="avatar">Confirm Password <span
-                                                    class="text-danger">*</span></label>
-                                            <input type="password" name="password_confirmation" class="form-control">
-                                        </div>
-                                    </div>
 
-
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Update</button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 @endsection
