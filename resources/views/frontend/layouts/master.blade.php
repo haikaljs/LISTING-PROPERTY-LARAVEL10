@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 </head>
 
 <body>
@@ -70,6 +71,8 @@
     <script src="{{ asset('frontend/js/summernote.min.js') }}"></script>
     <!--select js-->
     <script src="{{ asset('frontend/js/jquery.nice-select.min.js') }}"></script>
+    {{-- uploadpreview --}}
+    <script src="{{ asset('admin/assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }}"></script>
 
     <!--main/custom js-->
     <script src="{{ asset('frontend/js/main.js') }}"></script>
@@ -82,6 +85,7 @@
         @endif
     </script>
 
+    @stack('scripts')
 </body>
 
 </html>

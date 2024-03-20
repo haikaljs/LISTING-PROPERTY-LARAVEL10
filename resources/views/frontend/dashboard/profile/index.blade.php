@@ -120,20 +120,25 @@
                                     <div class="col-xl-4 col-md-5">
                                         <div class="my_listing_single">
                                             <label>Avatar</label>
-                                            <div class="profile_pic_upload">
-                                                <img src="{{ asset($user->avatar) }}" alt="img"
-                                                    class="imf-fluid w-100">
-                                                <input type="file">
-                                                <input type="hidden" name="old_avatar" value="{{ $user->avatar }}">
+                                            <div class="image-container">
+                                                <!-- Placeholder text -->
+                                                <div class="placeholder-text">Upload Here</div>
+                                                <!-- Input for uploading the image -->
+                                                <input type="file" accept="image/*" onchange="loadFile(event)">
+                                                <!-- Image preview -->
+                                                <img id="output" />
                                             </div>
                                         </div>
+
                                         <div class="my_listing_single">
                                             <label>Banner</label>
-                                            <div class="profile_pic_upload">
-                                                <img src="{{ asset($user->banner) }}" alt="img"
-                                                    class="imf-fluid w-100">
-                                                <input type="file">
-                                                <input type="hidden" name="old_banner" value="{{ $user->banner }}">
+                                            <div class="image-container">
+                                                <!-- Placeholder text -->
+                                                <div class="placeholder-text2">Upload Here</div>
+                                                <!-- Input for uploading the image -->
+                                                <input type="file" accept="image/*" onchange="loadFile2(event)">
+                                                <!-- Image preview -->
+                                                <img id="output2" />
                                             </div>
                                         </div>
                                     </div>
@@ -179,27 +184,133 @@
                             </form>
                         </div>
 
-                        <div class="my_listing list_mar">
-                            <form>
-                                <h4>Profile Banner Image</h4>
-                                <div class="row">
-                                    <div class="col-xl-6 col-md-8 col-lg-6">
-                                        <div class="profile_pic_upload banner_pic_upload">
-                                            <img src="images/login_breadcrumb.jpg" alt="img"
-                                                class="imf-fluid w-100">
-                                            <input type="file">
 
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="read_btn">upload</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <style>
+        /* Custom CSS styles go here */
+        .image-container {
+            position: relative;
+            height: 300px;
+            border: 3px dotted #fff;
+            /* Set border style to dotted and color to white */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-spacing: 20px;
+            /* Increase distance between dots */
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px dotted #fff;
+            /* Set additional border style to dotted and color to white */
+            border-spacing: 20px;
+            /* Increase distance between dots */
+        }
+
+        .image-container input[type="file"] {
+            position: absolute;
+            /* Position the input element absolutely within the container */
+            top: 0;
+            /* Position at the top */
+            left: 0;
+            /* Position at the left */
+            width: 100%;
+            /* Cover the entire width of the container */
+            height: 100%;
+            /* Cover the entire height of the container */
+            opacity: 0;
+            /* Make the input element invisible */
+            cursor: pointer;
+            /* Change cursor to pointer when hovering */
+        }
+
+        .image-container img {
+            max-width: 100%;
+            /* Ensure the image does not exceed the container width */
+            max-height: 100%;
+            /* Ensure the image does not exceed the container height */
+        }
+
+        .image-container button {
+            position: absolute;
+            /* Position the button absolutely within the container */
+            top: 50%;
+            /* Position the button at the vertical center */
+            left: 50%;
+            /* Position the button at the horizontal center */
+            transform: translate(-50%, -50%);
+            /* Center the button horizontally and vertically */
+            z-index: 1;
+            /* Ensure the button is above the input */
+        }
+
+        .placeholder-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+            /* Adjust color as needed */
+            font-size: 16px;
+            /* Adjust font size as needed */
+            font-weight: bold;
+            /* Adjust font weight as needed */
+        }
+
+        .placeholder-text2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+            /* Adjust color as needed */
+            font-size: 16px;
+            /* Adjust font size as needed */
+            font-weight: bold;
+            /* Adjust font weight as needed */
+        }
+    </style>
+    <script>
+        // JavaScript functions
+        var loadFile = function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('output');
+                output.src = reader.result;
+                output.style.border = '3px solid #fff';
+                // Change placeholder text to "Change Picture"
+                var placeholderText = document.querySelector('.image-container .placeholder-text');
+                if (placeholderText) {
+                    placeholderText.textContent = "Change Picture";
+                }
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+
+        var loadFile2 = function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('output2');
+                output.src = reader.result;
+                output.style.border = '3px solid #fff';
+                // Change placeholder text to "Change Picture"
+                var placeholderText = document.querySelector('.image-container .placeholder-text2');
+                if (placeholderText) {
+                    placeholderText.textContent = "Change Picture";
+                }
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+    </script>
 @endsection
