@@ -3,7 +3,7 @@
     <section class="section">
         <div class="section-header">
             <div class="section-header-back">
-                <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{route('admin.dashboard.index')}}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
             <h1>Hero</h1>
             <div class="section-header-breadcrumb">
@@ -31,7 +31,8 @@
                                             <div id="image-preview" class="image-preview avatar-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
                                                 <input type="file" name="background" id="image-upload" />
-                                                <input type="hidden" name="old_avatar" value="">
+                                                <input type="hidden" name="old_background"
+                                                    value="{{ @$hero->background }}">
                                             </div>
 
                                         </div>
@@ -40,7 +41,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="avatar">Title <span class="text-danger">*</span></label>
-                                            <input type="text" name="title" value="" class="form-control">
+                                            <input type="text" name="title" value="{{ @$hero->title }}"
+                                                class="form-control">
 
                                         </div>
                                     </div>
@@ -48,7 +50,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="avatar">Subtitle <span class="text-danger">*</span></label>
-                                            <input type="text" name="sub_title" value="" class="form-control">
+                                            <textarea name="sub_title" id="" cols="30" rows="10" class="form-control">{{ @$hero->sub_title }}</textarea>
 
                                         </div>
                                     </div>
@@ -70,3 +72,14 @@
         </div>
     </section>
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.image-preview').css({
+                'background-image': 'url({{ asset(@$hero->background) }})',
+                'background-size': 'cover',
+                'background-positon': 'center center'
+            })
+        })
+    </script>
+@endpush
