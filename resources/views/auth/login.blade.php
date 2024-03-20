@@ -54,15 +54,16 @@
             <div class="row">
                 <div class="col-xxl-5 col-xl-6 col-md-9 col-lg-7 m-auto">
                     <div class="wsus__login_area">
-                        <h2>Welcome back!</h2>
-                        <p>sign in to continue</p>
+                        {{-- <h2>Welcome back!</h2>
+                        <p>sign in to continue</p> --}}
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="wsus__login_imput">
                                         <label>email</label>
-                                        <input name="email" type="email" placeholder="Email">
+                                        <input name="email" value="{{ old('email') }}" type="email"
+                                            placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
@@ -85,7 +86,7 @@
                                 </div>
                                 <div class="col-xl-12">
                                     <div class="wsus__login_imput">
-                                        <button type="submit">login</button>
+                                        <button type="submit">LOGIN</button>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +98,8 @@
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
                         </ul> --}}
-                        <p class="create_account">Dont’t have an aceount ? <a href="{{route('register')}}">Create Account</a></p>
+                        <p class="create_account">Dont’t have an aceount ? <a href="{{ route('register') }}">Create
+                                Account</a></p>
                     </div>
                 </div>
             </div>
