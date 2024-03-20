@@ -1,4 +1,4 @@
-<x-guest-layout>
+{{-- <x-guest-layout>
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
 
@@ -36,4 +36,53 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-guest-layout> --}}
+@extends('frontend.layouts.master')
+@section('contents')
+    <section class="wsus__login_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-5 col-xl-6 col-md-9 col-lg-7 m-auto">
+                    <div class="wsus__login_area">
+
+                        <h4>Reset Password</h4>
+                        <form method="POST" action="{{ route('password.store') }}">
+                            @csrf
+                            <!-- Password Reset Token -->
+                            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="wsus__login_imput">
+                                        <label></label>
+                                        <input name="email" value="{{ old('email', $request->email) }}" type="email"
+                                            placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="wsus__login_imput">
+                                        <label>Password</label>
+                                        <input name="password" type="password" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="wsus__login_imput">
+                                        <label>Password Confirmation</label>
+                                        <input name="password_confirmation" type="password" placeholder="New Password">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xl-12">
+                                    <div class="wsus__login_imput">
+                                        <button type="submit">RESET PASSWORD</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
