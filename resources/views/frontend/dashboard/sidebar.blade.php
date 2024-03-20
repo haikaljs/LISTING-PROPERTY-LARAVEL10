@@ -1,6 +1,8 @@
 <div class="dashboard_sidebar">
     <span class="close_icon"><i class="far fa-times"></i></span>
-    <a href="dsahboard.html" class="dash_logo"><img src="images/user_large_img.jpg" alt="logo" class="img-fluid"></a>
+    <a href="dsahboard.html" class="dash_logo"><img
+            src="{{ !empty(asset(auth()->user()->avatar)) ? auth()->user()->avatar : asset('/default/avatar.png') }}"
+            alt="logo" class="img-fluid"></a>
     <ul class="dashboard_link">
         <li><a class="active" href="dsahboard.html"><i class="fas fa-tachometer"></i>Dashboard</a></li>
         <li><a href="dsahboard_listing.html"><i class="fas fa-list-ul"></i> My Listing</a></li>
