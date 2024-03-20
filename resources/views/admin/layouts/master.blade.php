@@ -55,6 +55,7 @@
 
     <!-- JS Libraies -->
     <script src="{{ asset('admin/assets/modules/summernote/summernote-bs4.js') }}"></script>
+    <script src="assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js"></script>
 
 
     <!-- Template JS File -->

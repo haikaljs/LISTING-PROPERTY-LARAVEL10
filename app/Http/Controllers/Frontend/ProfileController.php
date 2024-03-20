@@ -21,7 +21,7 @@ class ProfileController extends Controller
     }
 
     function update(ProfileUpdateRequest $request) : RedirectResponse{
-        $avatarPath = $this->uploadImage($request, 'avatar', $request->old_avatar);
+       $avatarPath = $this->uploadImage($request, 'avatar', $request->old_avatar);
        $bannerPath = $this->uploadImage($request, 'banner', $request->old_banner);
 
        $user = Auth::user();

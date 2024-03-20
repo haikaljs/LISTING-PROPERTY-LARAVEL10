@@ -124,9 +124,13 @@
                                                 <!-- Placeholder text -->
                                                 <div class="placeholder-text">Upload Here</div>
                                                 <!-- Input for uploading the image -->
-                                                <input type="file" accept="image/*" onchange="loadFile(event)">
+                                                <input type="file" name="avatar" accept="image/*"
+                                                    onchange="loadFile(event)">
+                                                <input type="hidden" name="old_avatar" value="{{ $user->avatar }}">
                                                 <!-- Image preview -->
-                                                <img id="output" />
+                                                <img id="output"
+                                                    src="{{ asset($user->avatar) ? asset($user->avatar) : '' }}"
+                                                    style="{{ asset($user->avatar) ? 'border: 3px solid #fff;' : '' }}" />
                                             </div>
                                         </div>
 
@@ -136,9 +140,13 @@
                                                 <!-- Placeholder text -->
                                                 <div class="placeholder-text2">Upload Here</div>
                                                 <!-- Input for uploading the image -->
-                                                <input type="file" accept="image/*" onchange="loadFile2(event)">
+                                                <input type="file" name="banner" accept="image/*"
+                                                    onchange="loadFile2(event)">
+                                                <input type="hidden" name="old_banner" value="{{ $user->banner }}">
                                                 <!-- Image preview -->
-                                                <img id="output2" />
+                                                <img id="output2"
+                                                    src="{{ asset($user->banner) ? asset($user->banner) : '' }}"
+                                                    style="{{ asset($user->banner) ? 'border: 3px solid #fff;' : '' }}" />
                                             </div>
                                         </div>
                                     </div>
