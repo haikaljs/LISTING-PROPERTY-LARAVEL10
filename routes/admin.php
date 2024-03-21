@@ -1,7 +1,9 @@
 <?php
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -21,6 +23,9 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
     // Hero routes
     Route::get('/hero', [HeroController::class, 'index'])->name('hero.index');
     Route::put('/hero', [HeroController::class, 'update'])->name('hero.update');
+
+    // Category routes
+    Route::resource('/category', CategoryController::class);
 })
 
 ?>
