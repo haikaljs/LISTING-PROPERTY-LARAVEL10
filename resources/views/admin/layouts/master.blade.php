@@ -17,6 +17,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/components.css') }}">
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
 
 </head>
 
@@ -68,7 +69,7 @@
             @endforeach
         @endif
     </script>
-       <script>
+    <script>
         $.uploadPreview({
             input_field: "#image-upload", // Default: .image-upload
             preview_box: "#image-preview", // Default: .image-preview
@@ -78,7 +79,6 @@
             no_label: false, // Default: false
             success_callback: null // Default: null
         });
-
     </script>
 
     @stack('scripts')
